@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Rigid‑Fluid Mixed Scene Reconstruction with Physical Priors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", "SimSun", sans-serif;
+        }
+        body {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.85;
+            color: #2d3748;
+            background-color: #f7fafc;
+        }
+        /* 标题区域 */
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #1a202c;
+            line-height: 1.4;
+        }
+        .author {
+            text-align: center;
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 45px;
+        }
+        .author span {
+            margin: 0 12px;
+        }
+        /* 板块通用样式 */
+        .section {
+            margin-bottom: 50px;
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        .section:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+        }
+        .section h2 {
+            font-size: 21px;
+            margin-bottom: 22px;
+            border-left: 5px solid #2563eb;
+            padding-left: 14px;
+            color: #1e293b;
+        }
+        /* 摘要段落 */
+        .abstract {
+            text-align: justify;
+            font-size: 15.5px;
+            letter-spacing: 0.3px;
+        }
+        /* GIF可视化区域 */
+        .gif-box {
+            margin-top: 24px;
+            text-align: center;
+        }
+        .gif-box img {
+            max-width: 96%;
+            border-radius: 10px;
+            margin: 12px 0;
+            box-shadow: 0 2px 10px #cbd5e1;
+        }
+        .fig-caption {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 10px;
+        }
+        .tip-text {
+            text-align:center;
+            color:#64748b;
+            margin-bottom:24px;
+            font-size:15px;
+        }
+        /* 一行四张GIF布局 */
+        .gif-row-4 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .gif-col-4 {
+            flex: 1;
+            min-width: 200px;
+            max-width: 24%;
+        }
+        .gif-col-4 img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px #cbd5e1;
+        }
+        /* 新增：四张子图文字均匀分布样式 */
+        .subfig-desc {
+            display: flex;
+            justify-content: space-around;
+            width: 96%;
+            margin: 8px auto 20px;
+            font-size: 14px;
+            color: #475569;
+        }
+        /* 资源按钮组 */
+        .link-group {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .link-group a {
+            display: inline-block;
+            margin: 0 10px 12px;
+            padding: 9px 24px;
+            background: #2563eb;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: background 0.25s;
+        }
+        .link-group a:hover {
+            background: #1d4ed8;
+        }
+        .link-group a:nth-child(2) {
+            background: #16a34a;
+        }
+        .link-group a:nth-child(2):hover {
+            background: #15803d;
+        }
+        .link-group a:nth-child(3) {
+            background: #db7706;
+        }
+        .link-group a:nth-child(3):hover {
+            background: #c26400;
+        }
+        /* 响应式适配手机 */
+        @media screen and (max-width: 640px) {
+            .title {
+                font-size: 22px;
+            }
+            .section {
+                padding: 20px;
+            }
+            .link-group a {
+                width: 80%;
+                margin: 8px auto;
+                display: block;
+            }
+            .gif-col-4 {
+                max-width: 46%;
+            }
+            /* 手机端子图文字自动换行 */
+            .subfig-desc {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Paper Title and Authors -->
+    <div class="title">Sparse‑View Neural Reconstruction for Dynamic Rigid‑Fluid Mixed Scenes with Physical Priors</div>
+    <div class="author">First Author <span>|</span> XX Research Group <span>|</span> XX University</div>
+    <!-- Abstract Section -->
+    <div class="section">
+        <h2>Abstract</h2>
+        <p class="abstract">
+            Aiming at geometry and distribution distortion problems in sparse‑view reconstruction of dynamic rigid‑fluid mixed scenes, this paper proposes a 3D reconstruction method incorporating physical priors. Conventional neural radiance fields with unified deformation modeling cannot adapt to the topological invariance of rigid bodies and diverse non‑rigid characteristics of fluids, which frequently causes rigid‑body drift, fluid distortion, and failure to distinguish fluid physical properties. In our method, a material‑aware multi‑branch neural field is constructed to separately model rigid bodies and fluids. Temporal feature aggregation and multi‑frame constraints are adopted to correct rigid‑body deformation artifacts. Physical regularization constraints for incompressible liquids and granular flows are introduced respectively. Experiments demonstrate that our approach enables high‑precision reconstruction of multi‑medium interaction scenes and outperforms existing state‑of‑the‑art algorithms.
+        </p>
+    </div>
+    <!-- Experimental Visualization with GIFs (4‑column comparison) -->
+    <div class="section">
+        <h2>Experimental Visualization</h2>
+        <p class="tip-text">Comparisons between our method and mainstream dynamic reconstruction algorithms</p>
+        <div class="gif-box">
+            <!-- Figure 1: Sand impacting rigid object -->
+            <div class="gif-row-4">
+                <div class="gif-col-4">
+                    <img src="gif/sand_video.gif" alt="GroundTruth">
+                    <p class="fig-caption">(a) GroundTruth</p>
+                </div>
+                <div class="gif-col-4">
+                    <img src="gif/sand_pinf.gif" alt="PINF">
+                    <p class="fig-caption">(b) PINF</p>
+                </div>
+                <div class="gif-col-4">
+                    <img src="gif/sand_PICT.gif" alt="PICT">
+                    <p class="fig-caption">(c) PICT</p>
+                </div>
+                <div class="gif-col-4">
+                    <img src="gif/sand_0408hybrid_gs_test_spiral_500000_rgb.gif" alt="Our reconstruction">
+                    <p class="fig-caption">(d) Ours</p>
+                </div>
+            </div>
+            <p class="fig-caption">Figure 1: Sand‑impact‑rigid‑body experiment</p>
+            <!-- Figure 2: Water impacting water‑wheel -->
+            <div class="gif-row-4">
+                <div class="gif-col-4">
+                    <img src="gif/video.gif" alt="GroundTruth">
+                    <p class="fig-caption">(a) GroundTruth</p>
+                </div>
+                <div class="gif-col-4">
+                    <img src="gif/water_pinf.gif" alt="PINF">
+                    <p class="fig-caption">(b) PINF</p>
+                </div>
+                <div class="gif-col-4">
+                    <img src="gif/water_PICT.gif" alt="PICT">
+                    <p class="fig-caption">(c) PICT</p>
+                </div>
+                <div class="gif-col-4">
+                    <img src="gif/water_0330_test_spiral_400000_rgb.gif" alt="Our reconstruction">
+                    <p class="fig-caption">(d) Ours</p>
+                </div>
+            </div>
+            <p class="fig-caption">Figure 2: Water‑impact‑water‑wheel experiment</p>
+            <!-- Figure3: Decoupled rigid‑fluid visualization -->
+            <img src="gif/output2.gif" alt="Full scene">
+            <div class="subfig-desc">
+                <span>(a) Ground truth of granular‑flow scene</span>
+                <span>(b) Rigid‑only reconstruction</span>
+                <span>(c) Fluid‑only reconstruction</span>
+                <span>(d) Our decoupled rigid‑fluid joint reconstruction</span>
+            </div>
+            <p class="fig-caption">Figure 3: Dynamic visualization of decoupled rigid and fluid components</p>
+        </div>
+    </div>
+    <!-- Resource Links -->
+    <div class="section">
+        <h2>Resources</h2>
+        <!--
+        <div class="link-group">
+            <a href="Your_PDF_Link" target="_blank">Paper PDF</a>
+            <a href="Your_GitHub_Link" target="_blank">GitHub Code</a>
+            <a href="Your_Video_Link" target="_blank">Full Demo Video</a>
+        </div>
+        -->
+    </div>
+</body>
+</html>
